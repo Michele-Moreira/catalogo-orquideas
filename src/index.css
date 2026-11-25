@@ -139,6 +139,43 @@ h1 {
   font-style: italic;
 }
 
+/* ========== FILTRO ========== */
+.filtros {
+  margin-top: 20px;
+}
+
+.filtros input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  background: var(--cor-caixa);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.sem-resultado {
+  margin-top: 24px;
+  color: var(--cor-texto-suave);
+}
+
+.botao-mais {
+  display: block;
+  margin: 28px auto 0;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--cor-destaque);
+  border: 2px solid var(--cor-destaque);
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botao-mais:hover {
+  background: var(--cor-destaque);
+  color: var(--cor-fundo);
+}
+
 /* ========== ESPÉCIES (GÊNERO) ========== */
 .grade-especies {
   list-style: none;
