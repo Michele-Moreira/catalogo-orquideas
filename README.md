@@ -17,8 +17,8 @@ descobrir quais tipos existem e ir navegando.
 
 - **Dados:** [GBIF](https://www.gbif.org), base internacional de biodiversidade. A API devolve a mesma
   planta repetida e marcações de "duvidosa"; o site limpa isso antes de mostrar (`src/utils/limparTaxons.ts`).
-- **Fotos:** [iNaturalist](https://www.inaturalist.org), só as que têm licença Creative Commons, sempre
-  com o crédito do autor.
+- **Fotos:** primeiro do [iNaturalist](https://www.inaturalist.org); se ele não tiver, das observações do GBIF.
+  Só entram fotos com licença Creative Commons, sempre com o crédito do autor.
 - Nenhuma das duas APIs pede chave, então o site é só front-end.
 
 ## Tecnologias
