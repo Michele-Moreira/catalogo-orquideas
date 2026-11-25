@@ -12,6 +12,7 @@
   --cor-destaque: #c86fc9;
   --cor-folha: #5fa86b;
   --cor-borda: #353a44;
+  --cor-sombra: rgba(0, 0, 0, 0.65);
   --raio: 12px;
 }
 
@@ -57,6 +58,34 @@ button {
   font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+/* ========== BUSCA (CABEÇALHO) ========== */
+.campo-busca {
+  display: flex;
+  flex: 1;
+  max-width: 420px;
+}
+
+.campo-busca input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: var(--cor-caixa);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-right: none;
+  border-radius: var(--raio) 0 0 var(--raio);
+}
+
+.campo-busca button {
+  padding: 10px 16px;
+  background: var(--cor-destaque);
+  color: var(--cor-fundo);
+  border: none;
+  border-radius: 0 var(--raio) var(--raio) 0;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 /* ========== CONTEÚDO ========== */
@@ -124,8 +153,211 @@ h1 {
   color: var(--cor-texto-suave);
 }
 
+/* ========== TRILHA ========== */
+.trilha {
+  margin-bottom: 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.trilha a {
+  color: var(--cor-destaque);
+}
+
+.nome-cientifico {
+  font-style: italic;
+}
+
+/* ========== FILTRO ========== */
+.filtros {
+  margin-top: 20px;
+}
+
+.filtros input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 14px;
+  background: var(--cor-caixa);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+}
+
+.sem-resultado {
+  margin-top: 24px;
+  color: var(--cor-texto-suave);
+}
+
+.botao-mais {
+  display: block;
+  margin: 28px auto 0;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--cor-destaque);
+  border: 2px solid var(--cor-destaque);
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.botao-mais:hover {
+  background: var(--cor-destaque);
+  color: var(--cor-fundo);
+}
+
+/* ========== ESPÉCIES (GÊNERO) ========== */
+.grade-especies {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.caixa-especie {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.caixa-especie:hover {
+  border-color: var(--cor-destaque);
+}
+
+.caixa-especie .nome-cientifico {
+  padding: 12px 12px 0;
+}
+
+.caixa-especie > :last-child {
+  padding-bottom: 12px;
+}
+
+.nivel {
+  padding: 2px 12px 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
+}
+
+/* ========== FICHA (ESPÉCIE E VARIEDADE) ========== */
+.ficha {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.ficha-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.etiqueta {
+  align-self: flex-start;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--cor-folha);
+  color: var(--cor-fundo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ficha-dados {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 8px 0;
+}
+
+.ficha-dados dt {
+  color: var(--cor-texto-suave);
+}
+
+.secao-variedades {
+  margin-top: 48px;
+}
+
+.secao-variedades h2 {
+  font-size: 1.4rem;
+}
+
+/* ========== FOTO ========== */
+.foto-planta {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--cor-borda);
+}
+
+.foto-grande {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--raio);
+}
+
+.foto-planta img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto-planta figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 4px 8px;
+  background: var(--cor-sombra);
+  color: var(--cor-texto);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.foto-grande figcaption {
+  white-space: normal;
+  font-size: 0.8rem;
+}
+
+.sem-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.foto-carregando {
+  animation: piscar 1.2s ease-in-out infinite;
+}
+
+@keyframes piscar {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foto-carregando {
+    animation: none;
+  }
+}
+
 /* ========== CELULAR ========== */
 @media (max-width: 768px) {
+  .campo-busca {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
   .cabecalho,
   .conteudo {
     padding-left: 16px;
@@ -134,5 +366,15 @@ h1 {
 
   h1 {
     font-size: 1.6rem;
+  }
+
+  .ficha {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .grade-especies {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
