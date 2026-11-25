@@ -12,6 +12,7 @@
   --cor-destaque: #c86fc9;
   --cor-folha: #5fa86b;
   --cor-borda: #353a44;
+  --cor-sombra: rgba(0, 0, 0, 0.65);
   --raio: 12px;
 }
 
@@ -203,6 +204,67 @@ h1 {
 
 .caixa-especie .nome-cientifico {
   padding: 12px;
+}
+
+/* ========== FOTO ========== */
+.foto-planta {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--cor-borda);
+}
+
+.foto-grande {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--raio);
+}
+
+.foto-planta img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto-planta figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 4px 8px;
+  background: var(--cor-sombra);
+  color: var(--cor-texto);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.foto-grande figcaption {
+  white-space: normal;
+  font-size: 0.8rem;
+}
+
+.sem-foto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.85rem;
+}
+
+.foto-carregando {
+  animation: piscar 1.2s ease-in-out infinite;
+}
+
+@keyframes piscar {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foto-carregando {
+    animation: none;
+  }
 }
 
 /* ========== CELULAR ========== */

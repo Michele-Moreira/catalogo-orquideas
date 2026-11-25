@@ -4,6 +4,7 @@ import { useEspecies } from '../hooks/useEspecies'
 import { nomeCurto } from '../utils/formatarNome'
 import { semAcento } from '../utils/semAcento'
 import Carregando from './Carregando'
+import FotoPlanta from './FotoPlanta'
 import MensagemErro from './MensagemErro'
 
 type Props = {
@@ -74,6 +75,7 @@ function ListaEspecies({ id }: Props) {
         {visiveis.map((especie) => (
           <li key={especie.key}>
             <Link className="caixa-especie" to={`/especie/${especie.key}`}>
+              <FotoPlanta nome={especie.canonicalName ?? ''} />
               <span className="nome-cientifico">{nomeCurto(especie.canonicalName ?? '')}</span>
             </Link>
           </li>
