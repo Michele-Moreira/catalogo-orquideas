@@ -206,6 +206,52 @@ h1 {
   padding: 12px;
 }
 
+/* ========== FICHA (ESPÉCIE E VARIEDADE) ========== */
+.ficha {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  margin-top: 12px;
+}
+
+.ficha-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.etiqueta {
+  align-self: flex-start;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--cor-folha);
+  color: var(--cor-fundo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ficha-dados {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  margin: 8px 0;
+}
+
+.ficha-dados dt {
+  color: var(--cor-texto-suave);
+}
+
+.secao-variedades {
+  margin-top: 48px;
+}
+
+.secao-variedades h2 {
+  font-size: 1.4rem;
+}
+
 /* ========== FOTO ========== */
 .foto-planta {
   position: relative;
@@ -277,6 +323,11 @@ h1 {
 
   h1 {
     font-size: 1.6rem;
+  }
+
+  .ficha {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .grade-especies {

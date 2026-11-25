@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router'
 import Header from './components/Header'
 import Inicio from './pages/Inicio'
 import GeneroPagina from './pages/GeneroPagina'
+import EspeciePagina from './pages/EspeciePagina'
 import MensagemErro from './components/MensagemErro'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/genero/:id" element={<GeneroPagina />} />
+        <Route path="/especie/:id" element={<EspeciePagina />} />
         <Route path="*" element={<MensagemErro mensagem="Página não encontrada." />} />
       </Routes>
     </>
