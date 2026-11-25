@@ -124,6 +124,50 @@ h1 {
   color: var(--cor-texto-suave);
 }
 
+/* ========== TRILHA ========== */
+.trilha {
+  margin-bottom: 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.trilha a {
+  color: var(--cor-destaque);
+}
+
+.nome-cientifico {
+  font-style: italic;
+}
+
+/* ========== ESPÉCIES (GÊNERO) ========== */
+.grade-especies {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.caixa-especie {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cor-caixa);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.caixa-especie:hover {
+  border-color: var(--cor-destaque);
+}
+
+.caixa-especie .nome-cientifico {
+  padding: 12px;
+}
+
 /* ========== CELULAR ========== */
 @media (max-width: 768px) {
   .cabecalho,
@@ -134,5 +178,10 @@ h1 {
 
   h1 {
     font-size: 1.6rem;
+  }
+
+  .grade-especies {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
