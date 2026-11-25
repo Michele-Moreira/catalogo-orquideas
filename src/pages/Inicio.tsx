@@ -4,7 +4,7 @@ import { generos } from '../data/generos'
 function Inicio() {
   return (
     <main className="conteudo">
-      <h1>Escolha um gênero</h1>
+      <h1>Gêneros em destaque</h1>
       <p className="subtitulo">
         Cada gênero reúne várias espécies. Clique pra ver todas e ir descendo até as variedades.
       </p>
@@ -19,6 +19,10 @@ function Inicio() {
           </li>
         ))}
       </ul>
+
+      <Link className="link-todos" to="/generos">
+        Ver todos os gêneros de orquídea →
+      </Link>
     </main>
   )
 }
