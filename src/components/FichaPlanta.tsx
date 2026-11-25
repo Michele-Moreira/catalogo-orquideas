@@ -26,6 +26,7 @@ function FichaPlanta({ id }: Props) {
 
   return (
     <main className="conteudo">
+      <title>{`${nome} · Catálogo de Orquídeas`}</title>
       <nav className="trilha" aria-label="Você está em">
         <Link to="/">Início</Link>
         {taxon.genusKey && (

@@ -51,6 +51,7 @@ function ListaEspecies({ id }: Props) {
 
   return (
     <main className="conteudo">
+      <title>{`${genero.canonicalName} · Catálogo de Orquídeas`}</title>
       <nav className="trilha" aria-label="Você está em">
         <Link to="/">Início</Link> › <span aria-current="page">{genero.canonicalName}</span>
       </nav>

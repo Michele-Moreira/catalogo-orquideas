@@ -29,6 +29,7 @@ function ResultadoBusca({ termo }: Props) {
 
   return (
     <main className="conteudo">
+      <title>{`Busca: ${termo} · Catálogo de Orquídeas`}</title>
       <h1>Resultado pra "{termo}"</h1>
       <p className="subtitulo">
         {resultados.length === 0
