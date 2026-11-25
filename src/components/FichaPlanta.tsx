@@ -46,7 +46,7 @@ function FichaPlanta({ id }: Props) {
       </nav>
 
       <div className="ficha">
-        <FotoPlanta nome={taxon.canonicalName ?? nome} grande />
+        <FotoPlanta nome={taxon.canonicalName ?? nome} id={taxon.key} grande />
 
         <div className="ficha-info">
           <p className="etiqueta">{traduzirNivel(taxon.rank)}</p>
@@ -82,7 +82,7 @@ function FichaPlanta({ id }: Props) {
               {variedades.map((variedade) => (
                 <li key={variedade.key}>
                   <Link className="caixa-especie" to={`/especie/${variedade.key}`}>
-                    <FotoPlanta nome={variedade.canonicalName ?? ''} />
+                    <FotoPlanta nome={variedade.canonicalName ?? ''} id={variedade.key} />
                     <span className="nome-cientifico">{nomeParaMostrar(variedade)}</span>
                   </Link>
                 </li>

@@ -23,3 +23,17 @@ export type PaginaGbif = {
   count?: number
   results: TaxonGbif[]
 }
+
+// Registro de alguém que viu a planta (no mato, num orquidário...), com as fotos que tirou
+export type MidiaGbif = {
+  type?: string
+  format?: string
+  identifier?: string
+  license?: string
+  creator?: string
+  rightsHolder?: string
+}
+
+export type PaginaRegistrosGbif = {
+  results: { media?: MidiaGbif[] }[]
+}

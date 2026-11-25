@@ -76,7 +76,7 @@ function ListaEspecies({ id }: Props) {
         {visiveis.map((especie) => (
           <li key={especie.key}>
             <Link className="caixa-especie" to={`/especie/${especie.key}`}>
-              <FotoPlanta nome={especie.canonicalName ?? ''} />
+              <FotoPlanta nome={especie.canonicalName ?? ''} id={especie.key} />
               <span className="nome-cientifico">{nomeCurto(especie.canonicalName ?? '')}</span>
             </Link>
           </li>

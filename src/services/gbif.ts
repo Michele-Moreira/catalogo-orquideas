@@ -1,4 +1,6 @@
-import type { PaginaGbif, TaxonGbif } from '../types/gbif'
+import type { Foto } from '../types/foto'
+import type { MidiaGbif, PaginaGbif, PaginaRegistrosGbif, TaxonGbif } from '../types/gbif'
+import { licencaLivre, nomeDaLicenca } from '../utils/licenca'
 
 const ENDERECO = 'https://api.gbif.org/v1'
 
@@ -67,4 +69,38 @@ export async function buscarOrquideas(termo: string) {
 
   const pagina = await pedir<PaginaGbif>('species/search', parametros)
   return pagina.results
+}
+
+// Serve de foto: imagem comum (as de "dzi" são de visualizador de herbário), em https
+// (senão o navegador bloqueia no site publicado) e com licença livre
+function midiaServe(midia: MidiaGbif) {
+  return (
+    midia.type === 'StillImage' &&
+    (midia.format === 'image/jpeg' || midia.format === 'image/png') &&
+    midia.identifier?.startsWith('https://') &&
+    licencaLivre(midia.license)
+  )
+}
+
+// Segunda fonte de foto, quando o iNaturalist não tem. Só registros de observação (HUMAN_OBSERVATION):
+// as fotos de herbário (planta seca) pesam de 8 a 17 MB cada, pesadas demais pra uma caixa de 200px.
+export async function buscarFotoGbif(id: number): Promise<Foto | null> {
+  const parametros = new URLSearchParams({
+    taxonKey: String(id),
+    mediaType: 'StillImage',
+    basisOfRecord: 'HUMAN_OBSERVATION',
+    limit: '20',
+  })
+  const pagina = await pedir<PaginaRegistrosGbif>('occurrence/search', parametros)
+  const midia = pagina.results.flatMap((registro) => registro.media ?? []).find(midiaServe)
+  if (!midia?.identifier || !midia.license) {
+    return null
+  }
+
+  const autor = midia.creator ?? midia.rightsHolder ?? 'autor desconhecido'
+  return {
+    url: midia.identifier,
+    urlGrande: midia.identifier,
+    credito: `(c) ${autor} (${nomeDaLicenca(midia.license)}), via GBIF`,
+  }
 }

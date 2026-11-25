@@ -11,9 +11,3 @@ export type TaxonInaturalist = {
 export type RespostaInaturalist = {
   results: TaxonInaturalist[]
 }
-
-export type Foto = {
-  url: string
-  urlGrande: string
-  credito: string
-}

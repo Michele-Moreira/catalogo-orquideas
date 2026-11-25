@@ -2,13 +2,14 @@ import { useFoto } from '../hooks/useFoto'
 
 type Props = {
   nome: string // nome do GBIF, sem "var.", que é como o iNaturalist também escreve
+  id: number // id do GBIF, pra buscar a foto lá quando o iNaturalist não tiver
   grande?: boolean
 }
 
 // As três situações (carregando, sem foto, com foto) ocupam o mesmo espaço,
 // então a grade não pula quando as fotos vão chegando
-function FotoPlanta({ nome, grande = false }: Props) {
-  const estado = useFoto(nome)
+function FotoPlanta({ nome, id, grande = false }: Props) {
+  const estado = useFoto(nome, id)
   const classe = grande ? 'foto-planta foto-grande' : 'foto-planta'
 
   if (estado.tipo === 'carregando') {

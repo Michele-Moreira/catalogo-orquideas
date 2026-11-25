@@ -41,7 +41,7 @@ function ResultadoBusca({ termo }: Props) {
         {resultados.map((taxon) => (
           <li key={taxon.key}>
             <Link className="caixa-especie" to={`/especie/${taxon.key}`}>
-              <FotoPlanta nome={taxon.canonicalName ?? ''} />
+              <FotoPlanta nome={taxon.canonicalName ?? ''} id={taxon.key} />
               <span className="nome-cientifico">{nomeParaMostrar(taxon)}</span>
               <span className="nivel">{traduzirNivel(taxon.rank)}</span>
             </Link>
