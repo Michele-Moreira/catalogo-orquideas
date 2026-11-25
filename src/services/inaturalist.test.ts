@@ -37,6 +37,11 @@ describe('pegarFoto', () => {
     expect(await pegarFoto('Cattleya aclandiae')).toBeNull()
   })
 
+  it('devolve null quando a foto tem todos os direitos reservados', async () => {
+    fingirInaturalist([{ name: 'Cattleya alaorii', default_photo: { ...fotoFalsa, license_code: null } }])
+    expect(await pegarFoto('Cattleya alaorii')).toBeNull()
+  })
+
   it('não pede de novo um nome que já buscou', async () => {
     const fetchFalso = fingirInaturalist([{ name: 'Cymbidium aloifolium', default_photo: fotoFalsa }])
     await pegarFoto('Cymbidium aloifolium')

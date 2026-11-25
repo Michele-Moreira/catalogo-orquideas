@@ -40,7 +40,8 @@ async function buscarFoto(nome: string): Promise<Foto | null> {
     const dados: RespostaInaturalist = await resposta.json()
     const mesmaPlanta = dados.results.find((taxon) => taxon.name.toLowerCase() === nome.toLowerCase())
     const foto = mesmaPlanta?.default_photo
-    if (!foto) {
+    // Sem licença (license_code null) quer dizer "todos os direitos reservados": não pode usar
+    if (!foto || !foto.license_code) {
       return null
     }
 
