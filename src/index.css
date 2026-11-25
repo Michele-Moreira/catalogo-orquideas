@@ -60,6 +60,34 @@ button {
   text-decoration: none;
 }
 
+/* ========== BUSCA (CABEÇALHO) ========== */
+.campo-busca {
+  display: flex;
+  flex: 1;
+  max-width: 420px;
+}
+
+.campo-busca input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: var(--cor-caixa);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-right: none;
+  border-radius: var(--raio) 0 0 var(--raio);
+}
+
+.campo-busca button {
+  padding: 10px 16px;
+  background: var(--cor-destaque);
+  color: var(--cor-fundo);
+  border: none;
+  border-radius: 0 var(--raio) var(--raio) 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* ========== CONTEÚDO ========== */
 .conteudo {
   max-width: 1100px;
@@ -203,7 +231,17 @@ h1 {
 }
 
 .caixa-especie .nome-cientifico {
-  padding: 12px;
+  padding: 12px 12px 0;
+}
+
+.caixa-especie > :last-child {
+  padding-bottom: 12px;
+}
+
+.nivel {
+  padding: 2px 12px 12px;
+  color: var(--cor-texto-suave);
+  font-size: 0.8rem;
 }
 
 /* ========== FICHA (ESPÉCIE E VARIEDADE) ========== */
@@ -315,6 +353,11 @@ h1 {
 
 /* ========== CELULAR ========== */
 @media (max-width: 768px) {
+  .campo-busca {
+    flex-basis: 100%;
+    max-width: none;
+  }
+
   .cabecalho,
   .conteudo {
     padding-left: 16px;

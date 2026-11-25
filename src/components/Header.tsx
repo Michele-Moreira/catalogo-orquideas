@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import CampoBusca from './CampoBusca'
 
 function Header() {
   return (
@@ -7,6 +8,7 @@ function Header() {
         <img src="/favicon.svg" alt="" width="32" height="32" />
         Catálogo de Orquídeas
       </Link>
+      <CampoBusca />
     </header>
   )
 }
